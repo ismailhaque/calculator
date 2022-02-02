@@ -1,38 +1,43 @@
-const ageCal = document.querySelector(`#age_form`);
-const result = document.querySelector(`#result`);
 
-ageCal.addEventListener('submit', function(e){
+let arr = [];
 
-    e.preventDefault();
+function valget(val) {
+    
+    arr.push(val)
+    document.querySelector(`.top-monitor`).innerHTML = arr.join('');
+    document.querySelector(`.main-monitor`).innerHTML = eval(arr.join('')).toFixed(2);
 
-    let date = this.querySelector(`input[type="date"]`).value;
-    let time = this.querySelector(`input[type="time"]`).value;
+}
 
-    let end_date = new Date();
-    let start_date = new Date( date + ' ' + time );
+let allclear = () =>{
+    
+    arr = [];
 
-    let time_diff = Math.floor((end_date.getTime() - start_date.getTime()));
+    document.querySelector(`.top-monitor`).innerHTML = 0;
+    document.querySelector(`.main-monitor`).innerHTML = '';
 
-    let secs = Math.floor( time_diff / 1000 );
-    let mins = Math.floor( secs / 60 );
-    let hours = Math.floor( mins / 60 );
-    let days = Math.floor( hours / 24 );
-    let weeks = Math.floor( days / 7 );
-    let months = Math.floor( days / 30.4375 );
-    let years = Math.floor( months / 12 );
+}
 
-    let month = months - ( years * 12 );
-    let day = ( days - ( month * 30.4375 ) - ( years * 12 * 30.4375 ));
+let back = () =>{
+    
+    arr.pop();
 
-    result.innerHTML = `
-                    <div class="card-footer alert alert-primary">
-                        <h1>AGE:</h1>
-                        <h3>${ Math.floor( years ) } years ${ Math.floor( month ) } months ${ Math.floor( day ) } days</h3>
-                        <h3>or ${ days } days</h3>
-                        <h3>or ${ hours } hours</h3>
-                        <h3>or ${ mins } minutes</h3>
-                        <h3>or ${ secs } seconds</h3>
-                    </div>
-    `;
-        
-})
+    if ( arr == '' ) {
+        document.querySelector(`.top-monitor`).innerHTML = '0';
+        document.querySelector(`.main-monitor`).innerHTML = '';
+    }else {
+        document.querySelector(`.top-monitor`).innerHTML = '';
+        document.querySelector(`.main-monitor`).innerHTML = eval(arr.join(''));
+    }
+    
+
+}
+
+function fainalres() {
+    
+    let result = document.querySelector(`.top-monitor`).innerHTML = eval(arr.join('')).toFixed(2);
+    arr = [];
+    arr.push(result)
+    document.querySelector(`.main-monitor`).innerHTML = arr.join('');
+
+}

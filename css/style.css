@@ -3,18 +3,57 @@
     padding: 0;
 }
 
-.box {
+@font-face {
+    font-family: myFirstFont;
+    src: url(../fonts/digital-7.ttf);
+}
+
+.cal {
+    width: 350px;
+    min-height: 450px;
+    background: rgb(155, 146, 146);
     margin: 200px auto;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-#counter {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+
+.monitor {
+    font-family: myFirstFont;
+    background: #000;
+    min-height: 80px;
+    border-radius: 10px 10px 0 0;
+    padding: 10px;
 }
-#counter p {
-    flex-basis: 20%;
-    text-align: center;
+
+.buttons button {
+    width: 25%;
+    float: left;
+    border: none;
+    height: 70px;
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.buttons button:hover {
+    background: rgb(240, 233, 233);
+}
+
+.top-monitor {
+    color: #fff;
+    text-align: right;
+    font-size: 30px;
+}
+.main-monitor {
+    color: #fff;
+    text-align: right;
+    padding-top: 10px;
     font-size: 40px;
-    font-weight: 700;
-    color: black;
+    font-weight: 600;
+}
+.close-button button{
+    width: 50%;
+    background: rgb(255, 87, 87);
+    border: 1px solid #fff;
 }
